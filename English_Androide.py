@@ -1,9 +1,26 @@
-#! -*- coding: utf-8 -*-
-## file
+# *               0ANDROIDEV
+# *                 2020
+# * _____________________________________________________________
+'''                                                  
+                                #                   
+                               ###                  
+                              #####                 
+                             #######                
+                            ###### ##               
+                           ###### ####              
+                          ##### #######             
+                         ####     ######            
+                        ####        #####           
+                       ###           #####          
+                      ###              ####         
+                     ##                  ###        
+                    #                      ##       
+                   #                         #      
+'''
 import sys
 # insert at 1, 0 is the script path (or '' in REPL)
 from jsonPy import jsonPy
-
+import os
 
 def addWord():
 
@@ -13,10 +30,18 @@ def addWord():
     while word == '':
         word = input('❔ Enter a new word:    ')
         if findWordName(word): 
+            
             concept = findWordName(word)
             for key in concept:
                 print(key,'----->',concept[key])
+                if concept[key] == None:
+                    auxConcept = input('if you want to learn more, you could add now')
+                    concept[key] = auxConcept
+            print(concept)
+            #! edit arcaico , esta wea hay que dejarla pulenta
+            jsonPy.editItem(currJson,currDict,concept)
             return False
+
 
     mean = askMening(word)
 
@@ -73,7 +98,6 @@ def askSentence():
 def findWordName(word:str=None):
     item = jsonPy.findItem(currJson , itemValue=word)
     if item != None:
-        print(item, ' already exists')
         return item
     else:
         print('you must create a new concept')
@@ -82,6 +106,10 @@ def findWordName(word:str=None):
 def findWord():
     word = input('You are looking for a word ?')
     return findWordName(word)
+
+
+if 'data' in os.listdir(os.getcwd()):
+    print('data folder allready exist')
 
 currJson = 'words'
 currDict = 'dictionary'
