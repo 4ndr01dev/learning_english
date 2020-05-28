@@ -116,14 +116,14 @@ if jsonPy.findJson(currJson):
     print('allready exist a json')
 else: 
     jsonPy.addNewJson(currJson)
-print('Chose an option:')
-print('emoji 1 -> add a new word')
-print('emoji 2 -> find a word in my dictionary')
-x = input('Chose an option:')
+
+print('1️⃣     add a new word')
+print('2️⃣     find a word in my dictionary \n ')
+x = input('Chose an option:     ')
 if x == '1':
     addWord()
 if x == '2':
-    word = input('❔ Enter a new word:    ')
+    word = input('❔ word to find :    ')
     concept = findWordName(word)
     if concept == None:
         print("❌ We dont found it ! ")
@@ -134,7 +134,7 @@ if x == '2':
         if add == 'n':
             print("❌ Bye bye ")
     else:
-        print("✔️ We found it ! ")
+        print("✔️  We found it ! \n ")
         for key in concept:
 
             print('     ⚜️   ', key, '----->', concept[key])
