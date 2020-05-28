@@ -1,0 +1,36 @@
+{
+    "dictionary": [
+        {
+            "word": "helloww",
+            "defined": false,
+            "meaning": null,
+            "translation": null,
+            "example": null,
+            "ID": "7USV4RH3"
+        },
+        {
+            "word": "hello",
+            "defined": false,
+            "meaning": "",
+            "translation": "nepe",
+            "example": "nepe",
+            "ID": "QEGH2FPK"
+        },
+        {
+            "word": "hellow",
+            "defined": false,
+            "meaning": "homelochino",
+            "translation": "homelochinoi",
+            "example": "homelo chino",
+            "ID": "YPUBC5OO"
+        },
+        {
+            "word": "rasengan",
+            "defined": false,
+            "meaning": null,
+            "translation": null,
+            "example": null,
+            "ID": "M7CKYVDX"
+        }
+    ]
+}

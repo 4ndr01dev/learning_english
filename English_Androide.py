@@ -22,12 +22,11 @@ import sys
 from jsonPy import jsonPy
 import os
 
-def addWord():
+def addWord(word:str = None):
 
-
-    word = ''
     defined = False
-    while word == '':
+
+    while word == None:
         word = input('❔ Enter a new word:    ')
         if findWordName(word): 
             
@@ -38,7 +37,6 @@ def addWord():
                     auxConcept = input('if you want to learn more, you could add now')
                     concept[key] = auxConcept
             print(concept)
-            #! edit arcaico , esta wea hay que dejarla pulenta
             jsonPy.editItem(currJson,currDict,concept)
             return False
 
@@ -101,7 +99,7 @@ def findWordName(word:str=None):
         return item
     else:
         print('you must create a new concept')
-        return False
+        return None
 
 def findWord():
     word = input('You are looking for a word ?')
@@ -113,6 +111,7 @@ if 'data' in os.listdir(os.getcwd()):
 
 currJson = 'words'
 currDict = 'dictionary'
+#!hacer una cuncion de menu para regresar aca
 if jsonPy.findJson(currJson):
     print('allready exist a json')
 else: 
@@ -124,8 +123,20 @@ x = input('Chose an option:')
 if x == '1':
     addWord()
 if x == '2':
-    findWord()
+    word = input('❔ Enter a new word:    ')
+    concept = findWordName(word)
+    if concept == None:
+        print("❌ We dont found it ! ")
+        add = input('❔ Would you like to add it now ?  [y/n] ')
+        if add == 'y':
+            print("❕ lets added it ! ")
+            addWord(word)
+        if add == 'n':
+            print("❌ Bye bye ")
+    else:
+        print("✔️ We found it ! ")
+        for key in concept:
 
-## we have to save txt in the correct format and poblate the data , and learn electron js to the GUI(graphical User Interface )
-    #csv format
+            print('     ⚜️   ', key, '----->', concept[key])
+
 
